@@ -14,27 +14,31 @@ export function Navbar({ onOpenSearch, onOpenCart, onOpenWishlist, onOpenMenu, c
       className={cn(
         "fixed inset-x-0 top-0 z-40 transition-all duration-500",
         scrolled
-          ? "border-b border-[var(--line)] bg-[var(--paper)]/90 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-[var(--line)] bg-[var(--paper)]/95 text-[var(--ink)] shadow-[0_8px_30px_rgba(64,50,56,.06)] backdrop-blur-md"
+          : "border-b border-[var(--paper)]/15 bg-[var(--ink)]/30 text-[var(--paper)] backdrop-blur-[6px]"
       )}
     >
       <div
         className={cn(
           "relative mx-auto flex max-w-[1440px] items-center justify-between px-5 transition-all duration-500 sm:px-8 lg:px-12",
-          scrolled ? "py-3.5" : "py-6"
+          scrolled ? "py-3.5" : "py-5"
         )}
       >
         <button
           onClick={onOpenMenu}
           aria-label="Open menu"
-          className="focus-ring flex h-9 w-9 items-center justify-center md:hidden"
+          className="focus-ring flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-[var(--paper)]/10 md:hidden"
         >
           <Menu size={20} strokeWidth={1.5} />
         </button>
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
-            <UnderlineLink key={link.label} to={link.to}>
+            <UnderlineLink
+              key={link.label}
+              to={link.to}
+              className={cn("transition-colors", scrolled ? "text-[var(--ink)]" : "text-[var(--paper)]")}
+            >
               {link.label}
             </UnderlineLink>
           ))}
@@ -50,19 +54,19 @@ export function Navbar({ onOpenSearch, onOpenCart, onOpenWishlist, onOpenMenu, c
             alt=""
             className="h-8 w-auto object-contain transition-all duration-500 sm:h-9"
           />
-          <span className="font-display text-[20px] font-medium tracking-[0.08em] text-[var(--ink)] sm:text-[22px]">
+          <span className={cn("font-display text-[20px] font-medium tracking-[0.08em] transition-colors sm:text-[22px]", scrolled ? "text-[var(--ink)]" : "text-[var(--paper)]")}>
             AMIRA
           </span>
         </Link>
 
         <div className="flex items-center gap-1">
-          <IconButton label="Search" onClick={onOpenSearch}>
+          <IconButton label="Search" onClick={onOpenSearch} className={scrolled ? "text-[var(--ink)]" : "text-[var(--paper)]"}>
             <Search size={19} strokeWidth={1.5} />
           </IconButton>
-          <IconButton label="Wishlist" onClick={onOpenWishlist} badge={wishlistCount} className="hidden sm:flex">
+          <IconButton label="Wishlist" onClick={onOpenWishlist} badge={wishlistCount} className={cn("hidden sm:flex", scrolled ? "text-[var(--ink)]" : "text-[var(--paper)]")}>
             <Heart size={19} strokeWidth={1.5} />
           </IconButton>
-          <IconButton label="Shopping bag" onClick={onOpenCart} badge={cartCount}>
+          <IconButton label="Shopping bag" onClick={onOpenCart} badge={cartCount} className={scrolled ? "text-[var(--ink)]" : "text-[var(--paper)]"}>
             <ShoppingBag size={19} strokeWidth={1.5} />
           </IconButton>
         </div>
