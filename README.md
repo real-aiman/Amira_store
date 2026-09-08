@@ -1,16 +1,76 @@
-# React + Vite
+# AMIRA Store 🎀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Soft. Feminine. Unforgettable.**
 
-Currently, two official plugins are available:
+A polished, responsive fashion storefront built with React + Vite, designed around a feminine luxury aesthetic and a smooth shopping experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Highlights
 
-## React Compiler
+- Editorial hero with subtle parallax motion
+- Feminine blush, rose, ivory and champagne design system
+- Responsive mobile-first layout
+- Product discovery and category browsing
+- Search, wishlist and cart interactions
+- Checkout flow UI
+- Framer Motion micro-interactions
+- Accessible focus states and reduced-motion support
+- SEO-ready document metadata
+- Fast Vite development and production builds
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Stack
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- JavaScript / JSX
+- Lucide icons
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎨 Design direction
+
+AMIRA uses a soft editorial fashion language: warm ivory surfaces, dusty rose accents, champagne details, elegant serif display typography and restrained dark contrast. The goal is to feel **girly without becoming childish** and **luxurious without becoming heavy**.
+
+## 🚀 Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Create a production build with:
+
+```bash
+npm run build
+```
+
+Preview the production build with:
+
+```bash
+npm run preview
+```
+
+## 📁 Project structure
+
+```text
+src/
+├── components/
+│   ├── Hero.jsx
+│   ├── Navbar.jsx
+│   ├── ProductCard.jsx
+│   ├── Cart.jsx
+│   ├── Wishlist.jsx
+│   └── ui/
+├── context/
+├── data/
+├── hooks/
+├── App.jsx
+└── index.css
+```
+
+## 💗 Brand goal
+
+AMIRA is built to make fashion browsing feel personal, beautiful and effortless — from the first hero interaction to the final checkout step.
+
+---
+
+Built with care for a modern feminine shopping experience.

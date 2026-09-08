@@ -6,55 +6,59 @@ import { PrimaryButton, UnderlineLink } from "./ui/Buttons";
 export function Hero() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
   return (
-    <section id="top" ref={ref} className="relative flex min-h-[92vh] items-end overflow-hidden bg-[var(--ink)]">
-      <motion.div style={{ y }} className="absolute inset-0">
+    <section id="top" ref={ref} className="relative flex min-h-[88vh] items-end overflow-hidden bg-[var(--ink)] sm:min-h-[92vh]">
+      <motion.div style={{ y }} className="absolute inset-0 scale-[1.04]">
         <img
-          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=80"
-          alt="Editorial portrait in muted tones, AMIRA autumn collection"
-          className="h-[110%] w-full object-cover opacity-90"
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2200&q=85"
+          alt="AMIRA feminine fashion editorial"
+          className="h-full w-full object-cover object-center opacity-90"
+          loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)] via-[var(--ink)]/10 to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(33,23,28,.88)_0%,rgba(33,23,28,.52)_42%,rgba(33,23,28,.08)_78%),linear-gradient(0deg,rgba(33,23,28,.9)_0%,transparent_62%)]" />
       </motion.div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-8 px-5 pb-16 sm:px-8 md:grid-cols-12 md:pb-20 lg:px-12">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-14 sm:px-8 sm:pb-16 md:px-10 md:pb-20 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="md:col-span-8 lg:col-span-7"
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-2xl"
         >
-          <Eyebrow className="text-[var(--sand)]">Autumn Collection — No. 12</Eyebrow>
-          <h1 className="font-display mt-4 max-w-xl text-[42px] leading-[1.05] text-[var(--paper)] sm:text-[56px] lg:text-[68px]">
-            Objects designed for a slower kind of living.
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--sand)]/40 bg-[var(--ink)]/25 px-3 py-1.5 backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--rose)]" />
+            <Eyebrow className="text-[var(--sand)]">The AMIRA Edit · New Season</Eyebrow>
+          </div>
+          <h1 className="font-display max-w-2xl text-[48px] leading-[.96] tracking-[-.02em] text-[var(--paper)] sm:text-[64px] lg:text-[78px]">
+            Soft. Feminine. <span className="text-[var(--sand)]">Unforgettable.</span>
           </h1>
-          <p className="font-body mt-6 max-w-md text-[15px] leading-relaxed text-[var(--paper)]/75">
-            Considered materials, restrained construction, and a wardrobe built to
-            outlast the season it was made for.
+          <p className="font-body mt-6 max-w-lg text-[15px] leading-7 text-[var(--paper)]/80 sm:text-base">
+            Curated fashion pieces made for the girl who loves beautiful details,
+            effortless elegance, and a little everyday magic.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
             <PrimaryButton
               onClick={() => document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-[var(--paper)] text-[var(--ink)] hover:bg-[var(--sand)]"
+              className="rounded-full bg-[var(--paper)] px-6 py-3 text-[var(--ink)] shadow-xl shadow-black/15 transition-all hover:-translate-y-0.5 hover:bg-[var(--sand)]"
             >
-              Explore Collection
+              Shop the Edit
             </PrimaryButton>
-            <UnderlineLink href="#story" className="text-[var(--paper)] py-3">
-              Discover the Story
+            <UnderlineLink href="#story" className="rounded-full px-3 py-3 text-[var(--paper)]">
+              Our Story →
             </UnderlineLink>
           </div>
         </motion.div>
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.9, duration: 0.6 }}
-        className="absolute bottom-8 right-5 z-10 hidden font-body text-xs tracking-wide text-[var(--paper)]/60 sm:right-8 md:block lg:right-12"
+        initial={{ opacity: 0, x: 12 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1, duration: 0.6 }}
+        className="absolute bottom-7 right-5 z-10 hidden rounded-full border border-[var(--paper)]/20 bg-[var(--ink)]/20 px-4 py-2 font-body text-[10px] uppercase tracking-[.22em] text-[var(--paper)]/70 backdrop-blur-md md:block lg:right-12"
       >
-        01 — Wool &amp; Silk / Fall–Winter
+        01 · Curated for her
       </motion.div>
     </section>
   );
